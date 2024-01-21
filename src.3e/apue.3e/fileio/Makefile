@@ -2,7 +2,7 @@ ROOT=..
 PLATFORM=$(shell $(ROOT)/systype.sh)
 include $(ROOT)/Make.defines.$(PLATFORM)
 
-PROGS =	fileflags hole mycat seek telbook logbook
+PROGS =	fileflags hole mycat seek telbook logbook filestatusflags
 
 all:	$(PROGS) setfl.o
 
