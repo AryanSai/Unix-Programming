@@ -5,13 +5,15 @@
 
 #define ENTRY_SIZE 40
 
-void create_log(char action[], char data[])
+void create_log(char telbook_name[],char action[], char data[])
 {
 	char log[100] = "";
 	int fd;
 	time_t t = time(NULL);
 	char *timeString = strtok(ctime(&t), "\n");
 
+	strcat(log, telbook_name);
+	strcat(log, " ");
 	strcat(log, timeString);
 	strcat(log, " ");
 	strcat(log, action);
@@ -24,6 +26,8 @@ void create_log(char action[], char data[])
 
 	if (write(fd, log, strlen(log)) != strlen(log))
 		err_sys("log write error");
+
+	close(fd);	
 }
 
 void create_telbook(char telbook_name[])
@@ -44,13 +48,14 @@ void create_telbook(char telbook_name[])
 	if (write(fd, "", 1) != 1)
 		err_sys("write error");
 	
+	create_log(telbook_name,"Create", "");
 	close(fd);	
 }
 
 void create_entry(char telbook_name[])
 {
 	int fd = open(telbook_name, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
-	create_log("Open", "");
+	create_log(telbook_name,"Open", "");
 	int index_num;
 
 	char tel_name[20] = "", tel_num[20] = "";
@@ -73,7 +78,7 @@ void create_entry(char telbook_name[])
 	if (write(fd, tel_num, 20) != 20)
 		err_sys("write error for telephone number");
 
-	create_log("Write", strcat(tel_name, tel_num));
+	create_log(telbook_name,"Write", strcat(tel_name, tel_num));
 
 	close(fd);
 }
@@ -81,7 +86,7 @@ void create_entry(char telbook_name[])
 void display_entry(char telbook_name[])
 {
 	int fd = open(telbook_name, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
-	create_log("Open", "");
+	create_log(telbook_name,"Open", "");
 
 	int index_num;
 
@@ -103,7 +108,7 @@ void display_entry(char telbook_name[])
 	printf("Name: %s\n", tel_name);
 	printf("Telephone Number: %s\n", tel_num);
 
-	create_log("Read", "");
+	create_log(telbook_name,"Read", "");
 
 	close(fd);
 }

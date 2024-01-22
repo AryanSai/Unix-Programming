@@ -1,12 +1,9 @@
-Sun Jan 21 11:34:53 2024 Open 
-Sun Jan 21 11:34:59 2024 Write dsadsa324324
-Sun Jan 21 11:35:07 2024 Open 
-Sun Jan 21 11:35:13 2024 Read 
-Sun Jan 21 11:36:51 2024 Open 
-Sun Jan 21 11:36:57 2024 Write saidsadsa
-Sun Jan 21 11:36:58 2024 Open 
-Sun Jan 21 11:37:00 2024 Read 
-Sun Jan 21 11:42:19 2024 Open 
-Sun Jan 21 11:42:20 2024 Read 
-Sun Jan 21 11:42:23 2024 Open 
-Sun Jan 21 11:42:30 2024 Read 
+ss.txt Mon Jan 22 15:09:14 2024 Create 
+ss.txt Mon Jan 22 15:09:16 2024 Open 
+ss.txt Mon Jan 22 15:09:20 2024 Write asa213213
+ss.txt Mon Jan 22 15:09:24 2024 Open 
+ss.txt Mon Jan 22 15:09:26 2024 Read 
+sai.txt Mon Jan 22 15:10:23 2024 Open 
+sai.txt Mon Jan 22 15:10:25 2024 Read 
+sai.txt Mon Jan 22 15:11:25 2024 Open 
+sai.txt Mon Jan 22 15:11:26 2024 Read 
