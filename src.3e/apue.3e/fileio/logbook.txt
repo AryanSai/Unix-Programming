@@ -7,3 +7,8 @@ sai.txt Mon Jan 22 15:10:23 2024 Open
 sai.txt Mon Jan 22 15:10:25 2024 Read 
 sai.txt Mon Jan 22 15:11:25 2024 Open 
 sai.txt Mon Jan 22 15:11:26 2024 Read 
+new.txt Mon Jan 22 18:45:20 2024 Create 
+new.txt Mon Jan 22 18:45:23 2024 Open 
+new.txt Mon Jan 22 18:45:28 2024 Write aryan12
+new.txt Mon Jan 22 18:45:42 2024 Open 
+new.txt Mon Jan 22 18:45:44 2024 Read 
