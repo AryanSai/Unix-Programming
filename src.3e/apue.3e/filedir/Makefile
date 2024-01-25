@@ -9,7 +9,7 @@ else
 endif
 
 
-PROGS =	access cdpwd changemod devrdev filetype mycd umask unlink $(ZAP)
+PROGS = createfile printstat
 MOREPROGS = ftw8
 
 all:	$(PROGS) $(MOREPROGS)

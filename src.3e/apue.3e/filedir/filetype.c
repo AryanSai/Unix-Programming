@@ -1,15 +1,16 @@
 #include "apue.h"
 
-int
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int			i;
-	struct stat	buf;
-	char		*ptr;
+	int i;
+	struct stat buf;
+	char *ptr;
 
-	for (i = 1; i < argc; i++) {
+	for (i = 1; i < argc; i++)
+	{
 		printf("%s: ", argv[i]);
-		if (lstat(argv[i], &buf) < 0) {
+		if (lstat(argv[i], &buf) < 0)
+		{
 			err_ret("lstat error");
 			continue;
 		}
