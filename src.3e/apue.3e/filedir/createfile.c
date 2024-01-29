@@ -4,7 +4,7 @@
 int main(void)
 {
     int fd;
-
+    umask(0);
     if ((fd = creat("file1.txt", S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IWOTH | S_IXOTH)) < 0)
         err_sys("creat error");
 
