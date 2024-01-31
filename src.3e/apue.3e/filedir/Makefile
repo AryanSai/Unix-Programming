@@ -9,7 +9,7 @@ else
 endif
 
 
-PROGS = createfile printstat
+PROGS = tempFile issymlink
 MOREPROGS = ftw8
 
 all:	$(PROGS) $(MOREPROGS)
