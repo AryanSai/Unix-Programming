@@ -1,12 +1,11 @@
 #include "apue.h"
 #include <dirent.h>
 #include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <pwd.h>
 #include <grp.h>
-#define ANSI_COLOR_BLUE     "\x1b[34m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
+
+#define ANSI_COLOR_BLUE "\x1b[34m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 char *permission_string(struct stat buf)
 {
@@ -68,14 +67,29 @@ void printInfo(const char *filename, struct stat buf, int n)
     printf("%6ld ", buf.st_size);
     printf("%.12s ", ctime(&buf.st_mtim.tv_sec) + 4);
 
-    if (S_ISDIR(buf.st_mode)) {
+    if (S_ISDIR(buf.st_mode))
+    {
         printf(ANSI_COLOR_BLUE "%s" ANSI_COLOR_RESET "\n", filename);
-    } else {
+    }
+    else
+    {
         printf("%s\n", filename);
     }
 }
 
-void printDir(struct stat buf, const char *name, int n, int hidden)
+void printAll(const char *name)
+{
+    DIR *dp;
+    struct dirent *dirp;
+
+    if ((dp = opendir(name)) == NULL)
+        err_sys("can't open %s", name);
+    while ((dirp = readdir(dp)) != NULL)
+        printf("%s\n", dirp->d_name);
+    closedir(dp);
+}
+
+void printDir(struct stat buf, const char *name, int n)
 {
     DIR *dp;
     struct dirent *dirp;
@@ -91,9 +105,7 @@ void printDir(struct stat buf, const char *name, int n, int hidden)
 
         if (stat(full_path, &buf) < 0)
             err_ret("stat error for %s", full_path);
-        else if (hidden == 1 && dirp->d_name[0] == '.')
-            printInfo(dirp->d_name, buf, n);
-        else if (hidden == 0 && dirp->d_name[0] == '.')
+        else if (dirp->d_name[0] == '.') /*leave hidden files*/
             continue;
         else
             printInfo(dirp->d_name, buf, n);
@@ -113,11 +125,11 @@ int main(int argc, char *argv[])
     }
 
     if (strcmp(option, "-a") == 0)
-        printDir(buf, argv[2], 0, 1);
+        printAll(argv[2]);
     else if (strcmp(option, "-l") == 0)
-        printDir(buf, argv[2], 0, 0);
+        printDir(buf, argv[2], 0);
     else if (strcmp(option, "-n") == 0)
-        printDir(buf, argv[2], 1, 0);
+        printDir(buf, argv[2], 1);
     else if (strcmp(option, "-d") == 0)
     {
         if (stat(argv[2], &buf) < 0)
