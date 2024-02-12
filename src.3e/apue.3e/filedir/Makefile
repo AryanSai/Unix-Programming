@@ -9,7 +9,7 @@ else
 endif
 
 
-PROGS = tempFile issymlink mytouch
+PROGS = tempFile issymlink mytouch myls new
 MOREPROGS = ftw8
 
 all:	$(PROGS) $(MOREPROGS)

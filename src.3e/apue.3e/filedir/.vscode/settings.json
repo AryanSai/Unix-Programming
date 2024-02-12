@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "time.h": "c",
-        "issymlink.C": "cpp"
+        "issymlink.C": "cpp",
+        "stdio.h": "c",
+        "apue.h": "c",
+        "pwd.h": "c"
     }
 }
