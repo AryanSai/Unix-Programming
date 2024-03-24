@@ -1,10 +1,9 @@
 #include "apue.h"
 #include <sys/wait.h>
 
-int
-main(void)
+int main(void)
 {
-	int		status;
+	int status;
 
 	if ((status = system("date")) < 0)
 		err_sys("system() error");
